@@ -179,6 +179,9 @@ class MapOwner(BaseEstimator, TransformerMixin):
         return X
 
 class RoundSeats(BaseEstimator, TransformerMixin):
+    def __init__(self):
+        self.final_columns_ = None  # Cambiado de columns_ a final_columns_
+
     def fit(self, X, y=None):
         return self
     
@@ -186,8 +189,8 @@ class RoundSeats(BaseEstimator, TransformerMixin):
         X = X.copy()
         # Redondear las columnas 'seats'
         X['seats'] = X['seats'].round().astype(int)
-        # Aquí devolvemos el DataFrame y también guardamos las columnas finales para referencia
-        self.final_columns_ = X.columns  # Guardamos las columnas finales
+        # Guardar las columnas
+        self.final_columns_ = X.columns  # Cambiado de columns_ a final_columns_
         return X
 
 class OneHotEncodeCategoricals(BaseEstimator, TransformerMixin):
