@@ -6,7 +6,7 @@ import numpy as np
 catboost_model = CatBoostRegressor()
 catboost_model.load_model("catboost_model.cbm")
 
-final_pipeline = joblib.load('final_pipeline.joblib')
+final_pipeline = joblib.load('../../final_pipeline.joblib')
 
 def make_predictions(nuevo_dato):
     nuevo_dato_procesado = final_pipeline.transform(nuevo_dato)
