@@ -1,0 +1,23 @@
+# Usar una imagen base oficial de Python
+FROM python:3.11-slim
+
+# Establecer el directorio de trabajo
+WORKDIR /app
+
+# Instalar Poetry
+RUN pip install poetry
+
+# Copiar el archivo pyproject.toml y poetry.lock
+COPY pyproject.toml poetry.lock ./
+
+# Instalar las dependencias del proyecto
+RUN poetry config virtualenvs.create false && poetry install
+
+# Copiar el resto de los archivos del proyecto
+COPY . .
+
+# Exponer el puerto que usará Jupyter Notebook
+EXPOSE 8888
+
+# Comando para ejecutar Jupyter Notebook
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
