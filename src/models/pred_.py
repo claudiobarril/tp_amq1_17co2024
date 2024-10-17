@@ -2,9 +2,18 @@ from catboost import CatBoostRegressor
 import pandas as pd
 import joblib
 import numpy as np
+import sys
+import os
+
+# Subir un nivel desde 'models' y apuntar a la carpeta 'src' que contiene 'util.py'
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Ahora puedes importar util
+import util
+
 # Cargar el modelo CatBoost entrenado
 catboost_model = CatBoostRegressor()
-catboost_model.load_model("catboost_model.cbm")
+catboost_model.load_model("../../catboost_model.cbm")
 
 final_pipeline = joblib.load('../../final_pipeline.joblib')
 

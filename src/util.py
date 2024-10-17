@@ -192,6 +192,8 @@ class RoundSeats(BaseEstimator, TransformerMixin):
         # Guardar las columnas
         self.final_columns_ = X.columns  # Cambiado de columns_ a final_columns_
         return X
+    
+    
 
 class OneHotEncodeCategoricals(BaseEstimator, TransformerMixin):
     def __init__(self, categorical_cols):
