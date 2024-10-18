@@ -1,3 +1,4 @@
+import pandas as pd
 from feature_engineering.name_splitter import NameSplitter
 from feature_engineering.owner_mapper import OwnerMapper
 from feature_engineering.seat_rounder import SeatRounder
@@ -56,3 +57,11 @@ class CarsPipeline(Pipeline):
 
     def final_columns(self):
         return self.pipeline.named_steps['final_pipeline'].named_steps['full_pipeline'].named_steps['round_seats'].final_columns_
+
+    def fit_transform_df(self, X, y=None):
+        processed = self.pipeline.fit_transform(X, y)
+        return pd.DataFrame(processed, columns=self.final_columns())
+
+    def transform_df(self, X):
+        processed = self.pipeline.transform(X)
+        return pd.DataFrame(processed, columns=self.final_columns())
