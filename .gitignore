@@ -8,7 +8,8 @@ __pycache__/
 
 catboost_info/
 catboost
-
+notebooks/old/
+old/
 # Distribution / packaging
 .Python
 build/
