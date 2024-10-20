@@ -40,6 +40,43 @@ Los criterios de aprobación son los siguientes:
    - En su cierre, debe dar una reflexión de la investigación.
    - Proponer nuevos caminos de resolución en caso de ser necesario.
 
----
+## Instrucciones para Ejecutar el Proyecto
+### Ejecución con Poetry
 
-*Nota: Este documento sirve como guía para la evaluación final del curso. Asegúrate de cumplir con todos los criterios mencionados para maximizar tus posibilidades de aprobación.*
+1. **Instalar Poetry**: Si no tienes Poetry instalado, sigue las instrucciones [aquí](https://python-poetry.org/docs/#installation).
+
+2. **Clonar el repositorio**:
+    ```bash
+    git clone git@github.com:claudiobarril/tp_amq1_17co2024.git
+    cd tp_amq1_17co2024
+    ```
+
+3. **Instalar las dependencias**:
+    ```bash
+    poetry install
+    ```
+
+4. **Iniciar el entorno virtual**:
+    ```bash
+    poetry shell
+    ```
+
+5. **Ejecutar Jupyter Notebook**:
+    ```bash
+    jupyter lab
+    ```
+   Abre la notebook deseada en la interfaz de Jupyter.
+
+### Ejecución en Docker
+1. **Instalar Docker**: Si no tienes Docker instalado, sigue las instrucciones [aquí](https://docs.docker.com/get-docker/).
+
+2. **Construir la imagen de Docker**:
+    ```bash
+    docker build -t amq1 .
+    ```
+
+3. **Ejecutar el contenedor de Docker**:
+    ```bash
+    docker run -p 8888:8888 amq1
+    ```
+   Abre tu navegador y ve a `http://localhost:8888` para acceder a Jupyter Notebook.
