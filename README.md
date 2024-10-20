@@ -77,6 +77,6 @@ Los criterios de aprobación son los siguientes:
 
 3. **Ejecutar el contenedor de Docker**:
     ```bash
-    docker run -p 8888:8888 amq1
+    docker run -p 8895:8895 amq1
     ```
-   Abre tu navegador y ve a `http://localhost:8888` para acceder a Jupyter Notebook.
+   Abre tu navegador y ve a `http://localhost:8895` para acceder a Jupyter Notebook.
