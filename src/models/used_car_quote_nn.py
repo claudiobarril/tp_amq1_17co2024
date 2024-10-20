@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
@@ -38,4 +39,8 @@ class UsedCarQuoteNN(torch.nn.Module):
 
     def forward(self, x):
         return self.layers(x)
+
+    def predict(self, x):
+        tensor_x = torch.tensor(x.to_numpy(), dtype=torch.float32).contiguous()
+        return np.vstack(self(tensor_x))
 
