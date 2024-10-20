@@ -1,10 +1,11 @@
 from sklearn.utils import estimator_html_repr
-from models.pipeline_ import final_pipeline
+from models.cars_pipeline import CarsPipeline
+from sklearn.experimental import enable_iterative_imputer
 import webbrowser
 import os
 
 # Generar la representación HTML del pipeline
-html_content = estimator_html_repr(final_pipeline)
+html_content = estimator_html_repr(CarsPipeline())
 
 # Guardar la representación HTML en un archivo, especificando la codificación UTF-8
 with open('../../pipeline_visualization.html', 'w', encoding='utf-8') as f:
